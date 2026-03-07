@@ -533,6 +533,19 @@ class RelayContainer(Container):
             systemctl restart unbound 2>/dev/null || true
         """)
 
+    def check_dns(self, retries=5, delay=2):
+        """Verify that external DNS resolution works inside the container."""
+        for i in range(retries):
+            result = self.bash(
+                "getent hosts pypi.org",
+                check=False,
+            )
+            if result:
+                return True
+            if i < retries - 1:
+                time.sleep(delay)
+        return False
+
     def write_ini(self, disable_ipv6=False):
         """Generate a chatmail.ini config file in lxconfigs/."""
         from chatmaild.config import write_initial_config
