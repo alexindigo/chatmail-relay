@@ -1,12 +1,13 @@
 // https://containers.dev/guide/dockerfile
 {
   "name": "chatmail relay build repo",
-  "image": "mcr.microsoft.com/devcontainers/base:debian",
-  "features": {
-      "ghcr.io/devcontainers/features/python:1": {
-          "version": "3.12"
-      }
-  },
+  "image": "mcr.microsoft.com/devcontainers/python:3-trixie",
+  // "image": "mcr.microsoft.com/devcontainers/base:debian",
+  // "features": {
+  //    "ghcr.io/devcontainers/features/python:1": {
+  //        "version": "3.12"
+  //    }
+  // },
   "workspaceFolder": "/workspace",
   "customizations": {
 		// Configure properties specific to VS Code.
