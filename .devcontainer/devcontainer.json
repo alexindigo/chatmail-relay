@@ -1,12 +1,12 @@
 // https://containers.dev/guide/dockerfile
 {
 	"name": "chatmail relay build repo",
-	"image": "mcr.microsoft.com/devcontainers/python:3.12-trixie",
+	"image": "mcr.microsoft.com/devcontainers/python:3-trixie",
 	//"image": "mcr.microsoft.com/devcontainers/base:ubuntu",
 	"features": {
-		//"ghcr.io/devcontainers/features/python:1": {
-		//	"version": "3.12"
-		//}
+	    "ghcr.io/devcontainers-extra/features/apt-get-packages:1": {
+			"packages": "python3-dev"
+		}
 	},
 	"workspaceFolder": "/workspace",
 	"customizations": {
